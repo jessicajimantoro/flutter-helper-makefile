@@ -14,6 +14,14 @@ clean:
 		$(FVM) flutter clean || flutter clean; \
 	);
 
+co-main:
+	for DIR in */; do \
+		cd $$DIR; \
+		echo "Checkout $$DIR to main branch"; \
+		git checkout feature/flutter-upgrade; \
+		cd ../; \
+	done;
+
 define multi-dir-template
 	for DIR in */; do \
   	${1} \
